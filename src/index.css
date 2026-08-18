@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Custom Animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-12px) rotate(2deg);
+    }
+  }
+
+  @keyframes float-reverse {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(14px) rotate(-3deg);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.08);
+    }
+  }
+
+  @keyframes blob-morph {
+    0%, 100% {
+      border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    }
+    33% {
+      border-radius: 70% 30% 46% 54% / 30% 60% 40% 70%;
+    }
+    66% {
+      border-radius: 50% 50% 34% 66% / 60% 30% 70% 40%;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float 9s ease-in-out infinite;
+  }
+
+  .animate-float-reverse {
+    animation: float-reverse 7s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 5s ease-in-out infinite;
+  }
+
+  .animate-blob {
+    animation: blob-morph 12s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2.5s infinite;
+  }
+}
+
+/* Glassmorphism & Custom Effects */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 20px 40px -15px rgba(110, 89, 230, 0.08), 0 0 1px 1px rgba(255, 255, 255, 0.9) inset;
+}
+
+.glass-card-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.18), 0 0 1px 1px rgba(255, 255, 255, 1) inset;
+}
+
+.purple-gradient-btn {
+  background: linear-gradient(135deg, #9875FF 0%, #7552FF 100%);
+  box-shadow: 0 10px 25px -5px rgba(123, 89, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.purple-gradient-btn:hover {
+  background: linear-gradient(135deg, #8862FF 0%, #643FFA 100%);
+  box-shadow: 0 14px 30px -4px rgba(123, 89, 255, 0.55);
+  transform: translateY(-2px);
+}
+
+.purple-gradient-card {
+  background: linear-gradient(145deg, #9975FF 0%, #7653FF 100%);
+  box-shadow: 0 25px 50px -10px rgba(117, 82, 255, 0.35);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF9FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+html {
+  overflow-x: hidden !important;
+  width: 100vw !important;
+  max-width: 100% !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+#root, main, section {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+/* Hide default browser password reveal eye icons (Edge/IE/Chrome) to eliminate double eye issue */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+  display: none !important;
+}
+
+
+
