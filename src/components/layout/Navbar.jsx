@@ -106,11 +106,9 @@ export default function Navbar({ user, onLogout, onOpenSignUp }) {
                 onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
                 className="flex items-center gap-3 p-1.5 pr-3 rounded-full hover:bg-purple-50/70 border border-slate-100 transition-colors cursor-pointer"
               >
-                <img
-                  src={user.avatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80'}
-                  alt={user.name}
-                  className="w-9 h-9 rounded-full object-cover border-2 border-[#8565FF]"
-                />
+                <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#7552FF] to-[#A78FFF] text-white flex items-center justify-center font-extrabold text-sm shadow-md shadow-purple-500/25 border-2 border-white select-none">
+                  {(user.name ? user.name.trim().charAt(0) : (user.email ? user.email.trim().charAt(0) : 'U')).toUpperCase()}
+                </div>
                 <div className="text-left">
                   <div className="text-xs font-bold text-[#1A1538] leading-tight">{user.name}</div>
                   <div className="text-[10px] text-[#8565FF] font-semibold">Active Account</div>
@@ -124,9 +122,14 @@ export default function Navbar({ user, onLogout, onOpenSignUp }) {
                   onMouseLeave={() => setProfileDropdownOpen(false)}
                   className="absolute right-0 top-full mt-2 w-56 bg-white rounded-2xl shadow-xl border border-slate-100 py-2.5 px-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200"
                 >
-                  <div className="px-3 py-2 border-b border-slate-100 mb-1">
-                    <p className="text-xs font-bold text-[#1A1538]">{user.name}</p>
-                    <p className="text-[11px] text-[#9DA1C0] truncate">{user.email}</p>
+                  <div className="px-3 py-2.5 border-b border-slate-100 mb-1 flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#7552FF] to-[#A78FFF] text-white flex items-center justify-center font-extrabold text-xs shadow-sm select-none shrink-0">
+                      {(user.name ? user.name.trim().charAt(0) : (user.email ? user.email.trim().charAt(0) : 'U')).toUpperCase()}
+                    </div>
+                    <div className="overflow-hidden">
+                      <p className="text-xs font-bold text-[#1A1538] truncate">{user.name}</p>
+                      <p className="text-[11px] text-[#9DA1C0] truncate">{user.email}</p>
+                    </div>
                   </div>
 
                   <button
@@ -208,13 +211,11 @@ export default function Navbar({ user, onLogout, onOpenSignUp }) {
             {user ? (
               <div className="space-y-3">
                 <div className="flex items-center gap-3 p-2 bg-slate-50 rounded-2xl">
-                  <img
-                    src={user.avatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80'}
-                    alt={user.name}
-                    className="w-10 h-10 rounded-full object-cover border-2 border-[#8565FF]"
-                  />
-                  <div className="text-left">
-                    <div className="text-sm font-bold text-[#1A1538]">{user.name}</div>
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#7552FF] to-[#A78FFF] text-white flex items-center justify-center font-extrabold text-base shadow-md shadow-purple-500/25 border-2 border-white select-none shrink-0">
+                    {(user.name ? user.name.trim().charAt(0) : (user.email ? user.email.trim().charAt(0) : 'U')).toUpperCase()}
+                  </div>
+                  <div className="text-left overflow-hidden">
+                    <div className="text-sm font-bold text-[#1A1538] truncate">{user.name}</div>
                     <div className="text-xs text-[#9DA1C0] truncate">{user.email}</div>
                   </div>
                 </div>
