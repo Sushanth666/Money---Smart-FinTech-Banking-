@@ -40,18 +40,18 @@ export default function Navbar({ user, onLogout, onOpenSignUp }) {
 
           {/* Desktop Nav Links */}
           <nav className="hidden md:flex items-center space-x-10 text-sm font-medium text-slate-700">
-            <a
-              href="#home"
+            <Link
+              to="/"
               className="hover:text-[#8C69FF] transition-colors"
             >
               Home
-            </a>
-            <a
-              href="#services"
+            </Link>
+            <Link
+              to="/features"
               className="hover:text-[#8C69FF] transition-colors"
             >
               Service
-            </a>
+            </Link>
             
             {/* Business Dropdown */}
             <div className="relative group/dropdown">
@@ -69,34 +69,37 @@ export default function Navbar({ user, onLogout, onOpenSignUp }) {
                   onMouseLeave={() => setBusinessDropdownOpen(false)}
                   className="absolute top-full left-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-slate-100 py-3 px-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200"
                 >
-                  <a
-                    href="#how-it-works"
+                  <Link
+                    to="/features"
+                    onClick={() => setBusinessDropdownOpen(false)}
                     className="block px-4 py-2.5 text-xs text-slate-600 hover:text-[#8C69FF] hover:bg-purple-50 rounded-xl transition-colors font-medium"
                   >
                     Enterprise Solutions
-                  </a>
-                  <a
-                    href="#pricing"
+                  </Link>
+                  <Link
+                    to="/works"
+                    onClick={() => setBusinessDropdownOpen(false)}
                     className="block px-4 py-2.5 text-xs text-slate-600 hover:text-[#8C69FF] hover:bg-purple-50 rounded-xl transition-colors font-medium"
                   >
                     Merchant Gateway
-                  </a>
-                  <a
-                    href="#testimonials"
+                  </Link>
+                  <Link
+                    to="/blog"
+                    onClick={() => setBusinessDropdownOpen(false)}
                     className="block px-4 py-2.5 text-xs text-slate-600 hover:text-[#8C69FF] hover:bg-purple-50 rounded-xl transition-colors font-medium"
                   >
                     Case Studies
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
 
-            <a
-              href="#pricing"
+            <Link
+              to="/support"
               className="hover:text-[#8C69FF] transition-colors"
             >
               Help
-            </a>
+            </Link>
           </nav>
 
           {/* Desktop Section: User Profile if Logged In, otherwise Log In & Sign Up buttons */}
@@ -177,35 +180,35 @@ export default function Navbar({ user, onLogout, onOpenSignUp }) {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-slate-100 px-6 py-6 space-y-4 shadow-xl">
-          <a
-            href="#home"
+          <Link
+            to="/"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-base font-medium text-slate-700 hover:text-[#8C69FF]"
           >
             Home
-          </a>
+          </Link>
 
-          <a
-            href="#services"
+          <Link
+            to="/features"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-base font-medium text-slate-700 hover:text-[#8C69FF]"
           >
             Service
-          </a>
-          <a
-            href="#how-it-works"
+          </Link>
+          <Link
+            to="/works"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-base font-medium text-slate-700 hover:text-[#8C69FF]"
           >
             Business
-          </a>
-          <a
-            href="#pricing"
+          </Link>
+          <Link
+            to="/support"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-base font-medium text-slate-700 hover:text-[#8C69FF]"
           >
             Help
-          </a>
+          </Link>
           
           <div className="pt-2 border-t border-slate-100 space-y-3">
             {user ? (
@@ -258,5 +261,3 @@ export default function Navbar({ user, onLogout, onOpenSignUp }) {
     </header>
   );
 }
-
-

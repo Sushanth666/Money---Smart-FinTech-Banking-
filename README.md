@@ -148,8 +148,20 @@ Money - Smart FinTech Banking 💳/
 | Route | Page Component | Description |
 | :--- | :--- | :--- |
 | `/` | `LandingPage.jsx` | Main FinTech Banking Landing Page |
-| `/login` | `Login.jsx` | User sign-in form |
-| `/signup` | `SignUp.jsx` | User registration |
+| `/about` | `AboutPage.jsx` | Company mission, metrics ($12.8B vol), and core principles |
+| `/features` / `/services` | `FeaturesPage.jsx` | Deep dive into instant transfers, biometric security, virtual cards |
+| `/works` / `/how-it-works` | `WorksPage.jsx` | Step-by-step account activation and global money operations |
+| `/careers` / `/career` | `CareersPage.jsx` | Open FinTech engineering, product, security & design roles |
+| `/support` / `/help` | `SupportPage.jsx` | 24/7 help desk, live support form, and interactive FAQs |
+| `/delivery-details` | `DeliveryDetailsPage.jsx` | Virtual card generation speeds & physical Visa shipping tiers |
+| `/terms` | `TermsPage.jsx` | Legal terms of service, compliance, and user rights |
+| `/privacy` | `PrivacyPage.jsx` | Bank-grade security standards, GDPR/CCPA data protection |
+| `/ebooks` | `EbooksPage.jsx` | Curated research publications & free PDF downloads |
+| `/tutorials` | `TutorialsPage.jsx` | REST API, webhooks & developer SDK implementation guides |
+| `/blog` | `BlogPage.jsx` | How-to articles, FX currency optimization & FinTech news |
+| `/youtube` | `YoutubePage.jsx` | Video masterclasses, architecture demos & HD tutorials |
+| `/login` | `Login.jsx` | User sign-in form with remember-me |
+| `/signup` | `SignUp.jsx` | User registration with local storage sync |
 | `/forgot-password` | `ForgotPassword.jsx` | Password reset request |
 | `/reset-password` | `ResetPassword.jsx` | Set new password confirmation |
 
