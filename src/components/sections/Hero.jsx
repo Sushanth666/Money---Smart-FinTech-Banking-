@@ -33,7 +33,19 @@ export default function Hero({ onOpenModal }) {
             {/* Action Buttons matching screenshot ("Read More" & "Get a Quote") */}
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2 sm:pt-3">
               <button
-                onClick={() => navigate('/signup')}
+                onClick={() =>
+                  onOpenModal({
+                    title: 'Fastest Money Transfer & Online Shopping',
+                    content:
+                      'Experience seamless global financial operations with Digital Money. Transfer funds internationally across 150+ countries with near-zero latency, best-in-class foreign exchange rates, transparent pricing without hidden fees, and bank-grade biometric multi-factor security. Manage online shopping, multi-currency debit cards, and automated budgeting all from a single unified financial dashboard.',
+                    advantages: [
+                      'Instant sub-second international transfers across 150+ countries',
+                      'Unified multi-currency wallet with automated FX conversions',
+                      'Virtual & physical Visa cards with contactless NFC chip support',
+                      'Automated expense tracking and real-time fraud monitoring',
+                    ],
+                  })
+                }
                 className="px-7 sm:px-9 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-[#A78FFF] to-[#8565FF] text-white font-semibold text-xs sm:text-base shadow-lg shadow-purple-500/25 hover:opacity-95 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer active:scale-95"
               >
                 Read More
