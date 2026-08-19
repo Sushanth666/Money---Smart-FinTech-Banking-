@@ -10,6 +10,14 @@ A modern, high-conversion FinTech & Digital Banking Web Application built with *
 
 ---
 
+## 🔗 Live Demo & Local Access
+
+- 🌐 **Live Production URL**: [https://money-smart-fintech-banking.vercel.app/](https://money-smart-fintech-banking.vercel.app/)
+- 💻 **Local Development Server**: [http://localhost:3002/](http://localhost:3002/)
+- 📦 **GitHub Repository**: [https://github.com/Sushanth666/Money---Smart-FinTech-Banking-](https://github.com/Sushanth666/Money---Smart-FinTech-Banking-)
+
+---
+
 ## 🌟 Key Features
 
 ### 1. ⚡ Hero & Conversion Engine
