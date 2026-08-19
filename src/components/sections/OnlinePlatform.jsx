@@ -1,8 +1,8 @@
 import React from 'react';
-import trackIcon from '../assets/track.png';
-import supportIcon from '../assets/support.png';
-import securityIcon from '../assets/security.png';
-import guideIcon from '../assets/guide.png';
+import trackIcon from '../../assets/icons/move-feature.png';
+import supportIcon from '../../assets/icons/support.png';
+import securityIcon from '../../assets/icons/security.png';
+import guideIcon from '../../assets/icons/guide.png';
 
 export default function OnlinePlatform({ onOpenModal }) {
   const features = [

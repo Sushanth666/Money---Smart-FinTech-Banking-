@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, ArrowLeft, CheckCircle2, KeyRound } from 'lucide-react';
-import logo from '../assets/logo.png';
-import purpleOrb from '../assets/purple-orb.png';
-import pinkOrb from '../assets/pink-orb.png';
+import logo from '../../assets/branding/logo.png';
+import purpleOrb from '../../assets/backgrounds/purple-orb.png';
+import pinkOrb from '../../assets/backgrounds/pink-orb.png';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown, LogOut, User as UserIcon } from 'lucide-react';
-import logo from '../assets/logo.png';
+import logo from '../../assets/branding/logo.png';
 
 export default function Navbar({ user, onLogout, onOpenSignUp }) {
   const navigate = useNavigate();

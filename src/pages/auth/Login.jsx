@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, Lock, Eye, EyeOff, ArrowLeft, CheckCircle2 } from 'lucide-react';
-import logo from '../assets/logo.png';
-import purpleOrb from '../assets/purple-orb.png';
-import pinkOrb from '../assets/pink-orb.png';
+import logo from '../../assets/branding/logo.png';
+import purpleOrb from '../../assets/backgrounds/purple-orb.png';
+import pinkOrb from '../../assets/backgrounds/pink-orb.png';
 
 export default function Login({ onLoginSuccess }) {
   const navigate = useNavigate();

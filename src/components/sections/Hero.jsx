@@ -1,12 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import moneySack from '../assets/money-sack.png';
-import coinStack from '../assets/coin-stack.png';
-import globe from '../assets/globe.png';
-import pinkFluid from '../assets/pink-fluid.png';
-import purpleFluid from '../assets/purple-fluid.png';
-import pinkOrb from '../assets/pink-orb.png';
-import purpleOrb from '../assets/purple-orb.png';
+import moneySack from '../../assets/icons/money-sack.png';
+import coinStack from '../../assets/icons/coin-stack.png';
+import globe from '../../assets/icons/globe.png';
+import pinkFluid from '../../assets/backgrounds/pink-fluid.png';
+import purpleFluid from '../../assets/backgrounds/purple-fluid.png';
+import pinkOrb from '../../assets/backgrounds/pink-orb.png';
+import purpleOrb from '../../assets/backgrounds/purple-orb.png';
 
 export default function Hero({ onOpenModal }) {
   const navigate = useNavigate();

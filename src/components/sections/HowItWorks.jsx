@@ -1,7 +1,7 @@
 import React from 'react';
 import { Check, Wifi } from 'lucide-react';
-import pinkOrb from '../assets/pink-orb.png';
-import purpleOrb from '../assets/purple-orb.png';
+import pinkOrb from '../../assets/backgrounds/pink-orb.png';
+import purpleOrb from '../../assets/backgrounds/purple-orb.png';
 
 export default function HowItWorks() {
   const checkItems = [
