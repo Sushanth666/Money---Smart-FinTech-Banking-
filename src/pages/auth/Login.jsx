@@ -74,15 +74,6 @@ export default function Login({ onLoginSuccess }) {
         <Link to="/" className="flex items-center group focus:outline-none">
           <img src={logo} alt="Logo" className="h-8 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105" />
         </Link>
-
-
-        <Link
-          to="/"
-          className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#9DA1C0] hover:text-[#8565FF] transition-colors py-2 px-4 rounded-full border border-slate-200/80 hover:border-[#8565FF]/40 bg-white/80 backdrop-blur-sm"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Back to Home</span>
-        </Link>
       </header>
 
       {/* Main Content Form Wrapper */}
@@ -93,6 +84,19 @@ export default function Login({ onLoginSuccess }) {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="w-full max-w-md bg-white/90 backdrop-blur-md rounded-[32px] p-8 sm:p-10 shadow-2xl shadow-purple-900/10 border border-slate-100"
         >
+          {/* Back to Home button at top-left inside card */}
+          {!success && (
+            <div className="mb-4">
+              <Link
+                to="/"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-[#9DA1C0] hover:text-[#8565FF] transition-all py-1.5 px-3.5 rounded-full border border-slate-200/80 hover:border-[#8565FF]/40 bg-purple-50/40 hover:bg-purple-50 group shadow-2xs"
+              >
+                <ArrowLeft className="w-3.5 h-3.5 text-[#9DA1C0] group-hover:text-[#8565FF] group-hover:-translate-x-0.5 transition-transform" />
+                <span>Back to Home</span>
+              </Link>
+            </div>
+          )}
+
           {success ? (
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
