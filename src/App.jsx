@@ -23,14 +23,31 @@ import FeatureModal from './components/ui/FeatureModal';
 
 export default function App() {
   const [modalData, setModalData] = useState(null);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem('money_auth_user');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
 
   const handleLoginSuccess = (userData) => {
     setUser(userData);
+    try {
+      localStorage.setItem('money_auth_user', JSON.stringify(userData));
+    } catch {
+      // ignore
+    }
   };
 
   const handleLogout = () => {
     setUser(null);
+    try {
+      localStorage.removeItem('money_auth_user');
+    } catch {
+      // ignore
+    }
   };
 
   return (

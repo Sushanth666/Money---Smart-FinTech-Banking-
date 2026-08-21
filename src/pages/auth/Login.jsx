@@ -18,6 +18,34 @@ export default function Login({ onLoginSuccess }) {
 
 
 
+  const handleSocialLogin = (provider) => {
+    setIsLoading(true);
+    setErrorMsg('');
+
+    const defaultUser = provider === 'Google' ? {
+      name: 'Sarah Jenkins',
+      email: 'sarah.jenkins@gmail.com',
+      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=250&q=80',
+      role: 'VIP Member',
+    } : {
+      name: 'Alex Morgan',
+      email: 'alex.morgan@icloud.com',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80',
+      role: 'Private Investor',
+    };
+
+    setTimeout(() => {
+      setIsLoading(false);
+      setSuccess(true);
+      if (onLoginSuccess) {
+        onLoginSuccess(defaultUser);
+      }
+      setTimeout(() => {
+        navigate('/');
+      }, 1200);
+    }, 800);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrorMsg('');
@@ -28,28 +56,28 @@ export default function Login({ onLoginSuccess }) {
       (u) => u.email.toLowerCase() === email.trim().toLowerCase()
     );
 
-    if (!targetUser) {
-      setErrorMsg('User not found. Please Sign Up to create an account.');
-      return;
-    }
-
-    if (targetUser.password !== password) {
+    if (targetUser && targetUser.password && targetUser.password !== password) {
       setErrorMsg('Incorrect password. Please check your password and try again.');
       return;
     }
 
-    // Credentials matched!
+    const userData = targetUser ? {
+      name: targetUser.fullName || targetUser.email.split('@')[0],
+      email: targetUser.email,
+      avatar: targetUser.avatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80',
+    } : {
+      name: email.split('@')[0].replace(/[._-]/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+      email: email.trim(),
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80',
+    };
+
     setIsLoading(true);
 
     setTimeout(() => {
       setIsLoading(false);
       setSuccess(true);
       if (onLoginSuccess) {
-        onLoginSuccess({
-          name: targetUser.fullName || targetUser.email.split('@')[0],
-          email: targetUser.email,
-          avatar: targetUser.avatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80',
-        });
+        onLoginSuccess(userData);
       }
       setTimeout(() => {
         navigate('/');
@@ -236,8 +264,8 @@ export default function Login({ onLoginSuccess }) {
               <div className="grid grid-cols-2 gap-3">
                 <button
                   type="button"
-                  onClick={() => navigate('/')}
-                  className="py-2.5 px-4 rounded-xl border border-slate-200/80 text-xs font-semibold text-[#1A1538] hover:bg-slate-50 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  onClick={() => handleSocialLogin('Google')}
+                  className="py-2.5 px-4 rounded-xl border border-slate-200/80 text-xs font-semibold text-[#1A1538] hover:bg-slate-50 transition-colors flex items-center justify-center gap-2 cursor-pointer active:scale-95"
                 >
                   <svg className="w-4 h-4" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -250,8 +278,8 @@ export default function Login({ onLoginSuccess }) {
 
                 <button
                   type="button"
-                  onClick={() => navigate('/')}
-                  className="py-2.5 px-4 rounded-xl border border-slate-200/80 text-xs font-semibold text-[#1A1538] hover:bg-slate-50 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  onClick={() => handleSocialLogin('Apple')}
+                  className="py-2.5 px-4 rounded-xl border border-slate-200/80 text-xs font-semibold text-[#1A1538] hover:bg-slate-50 transition-colors flex items-center justify-center gap-2 cursor-pointer active:scale-95"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.36c.66-.8 1.11-1.92.99-3.04-.96.04-2.12.64-2.8 1.44-.6.7-1.13 1.84-.99 2.94 1.07.08 2.15-.54 2.8-1.34z"/>
